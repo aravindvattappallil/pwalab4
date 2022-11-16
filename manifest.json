@@ -2,13 +2,13 @@
     "short_name" :"Music App",
     "name":"Complete music app",
     "description":"your favourit list of song title and artist",
-    "start_url" :"https://aravindvattappallil.github.io/Lab2/",
+    "start_url" :"https://aravindvattappallil.github.io/pwalab4/",
     "id" : "/",
     "display" :"standalone",
     "background_color":"#B97E71",
     "theme_color" :"#A79D9D",
     "orientation" : "any",
-    "scope":"/Lab2/",
+    "scope":"/pwalab4/",
     "icons": [
         {
             "src": "./favicon_package/android-chrome-192x192.png",

@@ -1,5 +1,5 @@
 let cacheName = "cache_v1";
-let url ="https://aravindvattappallil.github.io/Lab2"
+let url ="https://aravindvattappallil.github.io/pwalab4"
 
 //network with cash fallback
 self.addEventListener('fetch', function (event) {
