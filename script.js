@@ -25,7 +25,7 @@ document.getElementById('btn').addEventListener('click', () => {
     document.getElementById('title').value = '';
     document.getElementById('body').value = '';
     errormsg.style.display="none"
-    displayNotification(body)
+    displayNotification(body,title)
 
   }
    
@@ -61,20 +61,21 @@ function notificationNotAllowed() {
   console.log('Notifications not allowed!');
   notificationButton.disabled = true;
 }
+
 function requestUserPermission() {
   Notification.requestPermission()
-    .then((permission) => {
-      if (permission === 'granted') {
-        displayNotification();
-      }
-      else {
-        notificationNotAllowed();
-      }
-    });
+    // .then((permission) => {
+    //   if (permission === 'granted') {
+    //     displayNotification();
+    //   }
+    //   else {
+    //     notificationNotAllowed();
+    //   }
+    // });
 }
 
 
-function displayNotification(body) {
+function displayNotification(body,title) {
   const options = {
     body: body,
     actions: [
