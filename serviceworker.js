@@ -41,3 +41,22 @@ self.addEventListener('activate',(event)=>{
     }));
 
 });
+
+
+//Notification 
+
+self.addEventListener('notificationclick', (event) => {
+    const action = event.action;
+    const notification = event.notification;
+    switch (action) {
+      case 'confirm':
+        console.log('Confirmed!!!');
+        break;
+  
+      case 'cancel':
+        console.log('Cancelled.');
+        break;
+  
+
+    }
+  });
