@@ -48,13 +48,26 @@ self.addEventListener('activate',(event)=>{
 self.addEventListener('notificationclick', (event) => {
     const action = event.action;
     const notification = event.notification;
+  
     switch (action) {
       case 'confirm':
         console.log('Confirmed!!!');
+        const feedbackc= document.getElementById('feedback')
+        const msggc = document.createElement('p')
+        msgg.innerText="So we both agree on that!"
+      
+      feedback.appendChild(msggc)
+       
         break;
   
       case 'cancel':
         console.log('Cancelled.');
+        const feedback= document.getElementById('feedback')
+    const msgg = document.createElement('p')
+    msgg.innerText="Let's agree to disagree."
+  
+  feedback.appendChild(msgg)
+       
         break;
   
 

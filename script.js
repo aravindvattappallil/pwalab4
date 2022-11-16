@@ -26,14 +26,13 @@ document.getElementById('btn').addEventListener('click', () => {
     document.getElementById('body').value = '';
     errormsg.style.display="none"
     displayNotification(body,title)
-
+    
   }
+  
    
 })
 
-function checking(){
 
-}
 
 
 //----------------------Notification
@@ -53,6 +52,8 @@ if ('Notification' in window && 'serviceWorker' in navigator) {
       case 'granted':
         form.style.display="block"
         notificationButton.style.display="none"
+
+       
         break;
     }
 
