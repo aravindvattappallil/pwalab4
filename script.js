@@ -54,7 +54,7 @@ if ('Notification' in window && 'serviceWorker' in navigator) {
         notificationButton.style.display="none"
 
 
-
+       
         
        
         break;
@@ -124,6 +124,9 @@ navigator.serviceWorker.addEventListener('message', (event) => {
   const feedback= document.getElementById('feedback')
     const msgg = document.createElement('p')
     msgg.innerText=event.data.msg
+    feedback.removeChild(feedback.firstChild);
     feedback.appendChild(msgg)
 });
+
+
 
