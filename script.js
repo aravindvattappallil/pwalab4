@@ -25,36 +25,37 @@ document.getElementById('btn').addEventListener('click', () => {
     document.getElementById('title').value = '';
     document.getElementById('body').value = '';
     errormsg.style.display="none"
+    if ('Notification' in window && 'serviceWorker' in navigator) {
+      notificationButton.addEventListener('click', () => {
+        console.log(Notification.permission);
+        switch (Notification.permission) {
+          case 'denied':
+            notificationNotAllowed();
+            break;
+    
+          case 'default':
+            requestUserPermission();
+            break;
+    
+          case 'granted':
+            form.style.display="block"
+            displayNotification()
+            break;
+        }
+    
+      }
+      );
+    }
+    else {
+      notificationNotAllowed();
+    }
 
   }
    
 })
 //----------------------Notification
-const notificationButton = document.getElementById('noti');
-if ('Notification' in window && 'serviceWorker' in navigator) {
-  notificationButton.addEventListener('click', () => {
-    console.log(Notification.permission);
-    switch (Notification.permission) {
-      case 'denied':
-        notificationNotAllowed();
-        break;
+//const notificationButton = document.getElementById('noti');
 
-      case 'default':
-        requestUserPermission();
-        break;
-
-      case 'granted':
-        form.style.display="block"
-        displayNotification()
-        break;
-    }
-
-  }
-  );
-}
-else {
-  notificationNotAllowed();
-}
 
 function notificationNotAllowed() {
   console.log('Notifications not allowed!');
@@ -75,7 +76,7 @@ function requestUserPermission() {
 
 function displayNotification() {
   const options = {
-    body: 'Thank you for subscribing to our notifications.',
+    body: body,
     actions: [
       {
         action: 'confirm',
@@ -90,7 +91,7 @@ function displayNotification() {
 
   // new Notification('Successfully subscribed!', options);
   navigator.serviceWorker.ready.then(registration => {
-    registration.showNotification('Successfully subscribed!', options);
+    registration.showNotification(title, options);
   });
 
 }
