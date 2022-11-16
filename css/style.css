@@ -23,6 +23,15 @@ body{
 #new,#list{
     flex: 1;
     
+
+}
+.fcontainer{
+    display: flex;
+    justify-content: center;
+}
+.form_div{
+    display: flex;
+    flex-direction: column;
 }
 .form_div{
     display: flex;
@@ -60,6 +69,21 @@ body{
 .successdata{
     background-color: green;
 }
+#noti{
+    margin-bottom: 50px;
+    padding: 10px;
+    
+}
+Button{
+    background-color: blue;
+    color: aliceblue;
+    
+}
+.musiclistform{
+    display: none;
+}
+
+
 @media screen and (max-width:768px){
     #main_div{
         flex-direction: column;

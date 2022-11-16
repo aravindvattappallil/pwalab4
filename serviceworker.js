@@ -21,10 +21,7 @@ self.addEventListener('install',(   )=>{
             `${url}/index.html`,
             `${url}/manifest.json`,
             `${url}/script.js`,
-            `${url}/icon/icon.png`,
-            `${url}/css/style.css`,
-            `${url}/favicon_package/android-chrome-192x192.png`,
-            `${url}/favicon_package/android-chrome-512x512.png`
+            
 
         ]);
     }).catch((error)=>{
