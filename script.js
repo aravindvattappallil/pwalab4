@@ -47,12 +47,12 @@ if ('Notification' in window && 'serviceWorker' in navigator) {
         break;
 
       case 'default':
-        requestUserPermission();
+        requestUserPermission(notificationButton);
         break;
 
       case 'granted':
         form.style.display="block"
-        notificationButton.disabled = false
+        notificationButton.style.display="none"
         break;
     }
 
@@ -69,12 +69,13 @@ function notificationNotAllowed() {
   notificationButton.disabled = true;
 }
 
-function requestUserPermission() {
+function requestUserPermission(notificationButton) {
   Notification.requestPermission()
      .then((permission) => {
       if (permission === 'granted') {
         form.style.display="block"
-        notificationButton.disabled = false
+        notificationButton.style.display="none"
+        
       }
       else {
         notificationNotAllowed();
