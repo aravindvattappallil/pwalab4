@@ -123,7 +123,6 @@ navigator.serviceWorker.addEventListener('message', (event) => {
   console.log(event.data.msg);
   const feedback= document.getElementById('feedback')
     const msgg = document.createElement('p')
-    clearListItems(feedback)
     msgg.innerText=event.data.msg
     feedback.appendChild(msgg)
 });
