@@ -5,7 +5,7 @@
 const form = document.getElementById('musiclistform');
 const errormsg = document.createElement('div');
 form.insertBefore(errormsg, form.firstChild);
-
+const notificationButton = document.getElementById('noti');
 
   console.log("hhhh")
    switch (Notification.permission) {
@@ -57,7 +57,7 @@ document.getElementById('btn').addEventListener('click', () => {
 
 
 //----------------------Notification
-const notificationButton = document.getElementById('noti');
+
 if ('Notification' in window && 'serviceWorker' in navigator) {
   notificationButton.addEventListener('click', () => {
     console.log(Notification.permission);
