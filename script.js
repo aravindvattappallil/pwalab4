@@ -25,37 +25,37 @@ document.getElementById('btn').addEventListener('click', () => {
     document.getElementById('title').value = '';
     document.getElementById('body').value = '';
     errormsg.style.display="none"
-    if ('Notification' in window && 'serviceWorker' in navigator) {
-      notificationButton.addEventListener('click', () => {
-        console.log(Notification.permission);
-        switch (Notification.permission) {
-          case 'denied':
-            notificationNotAllowed();
-            break;
-    
-          case 'default':
-            requestUserPermission();
-            break;
-    
-          case 'granted':
-            form.style.display="block"
-            displayNotification()
-            break;
-        }
-    
-      }
-      );
-    }
-    else {
-      notificationNotAllowed();
-    }
+    displayNotification(body)
 
   }
    
 })
 //----------------------Notification
-//const notificationButton = document.getElementById('noti');
+const notificationButton = document.getElementById('noti');
+if ('Notification' in window && 'serviceWorker' in navigator) {
+  notificationButton.addEventListener('click', () => {
+    console.log(Notification.permission);
+    switch (Notification.permission) {
+      case 'denied':
+        notificationNotAllowed();
+        break;
 
+      case 'default':
+        requestUserPermission();
+        break;
+
+      case 'granted':
+        form.style.display="block"
+       
+        break;
+    }
+
+  }
+  );
+}
+else {
+  notificationNotAllowed();
+}
 
 function notificationNotAllowed() {
   console.log('Notifications not allowed!');
@@ -74,7 +74,7 @@ function requestUserPermission() {
 }
 
 
-function displayNotification() {
+function displayNotification(body) {
   const options = {
     body: body,
     actions: [
