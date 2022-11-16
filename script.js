@@ -33,6 +33,8 @@ document.getElementById('btn').addEventListener('click', () => {
 
 function checking(){
 
+}
+
 
 //----------------------Notification
 const notificationButton = document.getElementById('noti');
@@ -50,7 +52,7 @@ if ('Notification' in window && 'serviceWorker' in navigator) {
 
       case 'granted':
         form.style.display="block"
-       
+        notificationButton.disabled = false
         break;
     }
 
@@ -60,7 +62,7 @@ if ('Notification' in window && 'serviceWorker' in navigator) {
 else {
   notificationNotAllowed();
 }
-}
+
 
 function notificationNotAllowed() {
   console.log('Notifications not allowed!');
@@ -69,14 +71,15 @@ function notificationNotAllowed() {
 
 function requestUserPermission() {
   Notification.requestPermission()
-    // .then((permission) => {
-    //   if (permission === 'granted') {
-    //     displayNotification();
-    //   }
-    //   else {
-    //     notificationNotAllowed();
-    //   }
-    // });
+     .then((permission) => {
+      if (permission === 'granted') {
+        form.style.display="block"
+        notificationButton.disabled = false
+      }
+      else {
+        notificationNotAllowed();
+      }
+    });
 }
 
 
