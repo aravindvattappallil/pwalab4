@@ -30,6 +30,10 @@ document.getElementById('btn').addEventListener('click', () => {
   }
    
 })
+
+function checking(){
+
+
 //----------------------Notification
 const notificationButton = document.getElementById('noti');
 if ('Notification' in window && 'serviceWorker' in navigator) {
@@ -55,6 +59,7 @@ if ('Notification' in window && 'serviceWorker' in navigator) {
 }
 else {
   notificationNotAllowed();
+}
 }
 
 function notificationNotAllowed() {
