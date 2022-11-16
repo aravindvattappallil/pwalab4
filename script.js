@@ -116,3 +116,10 @@ if('serviceWorker' in navigator){
     })
 }
 
+navigator.serviceWorker.addEventListener('message', (event) => {
+  console.log(event.data.msg);
+  const feedback= document.getElementById('feedback')
+    const msgg = document.createElement('p')
+    msgg.innerText=event.data.msg
+});
+

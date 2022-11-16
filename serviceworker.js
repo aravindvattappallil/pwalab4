@@ -51,20 +51,18 @@ self.addEventListener('notificationclick', (event) => {
   
     switch (action) {
       case 'confirm':
-        console.log('Confirmed!!!');
-        const feedbackc= document.getElementById('feedback')
-        const msggc = document.createElement('p')
-        msgg.innerText="So we both agree on that!"
-      
-      feedback.appendChild(msggc)
+      self.clients.matchAll().then(clients => {
+    clients.forEach(client => client.postMessage({msg: 'So we both agree on that!'}));
+})
        
         break;
   
       case 'cancel':
         console.log('Cancelled.');
-        const feedback= document.getElementById('feedback')
-    const msgg = document.createElement('p')
-    msgg.innerText="Let's agree to disagree."
+        self.clients.matchAll().then(clients => {
+            clients.forEach(client => client.postMessage({msg: "Let's agree to disagree."}));
+        })
+        
   
   feedback.appendChild(msgg)
        
