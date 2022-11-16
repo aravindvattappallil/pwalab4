@@ -121,5 +121,6 @@ navigator.serviceWorker.addEventListener('message', (event) => {
   const feedback= document.getElementById('feedback')
     const msgg = document.createElement('p')
     msgg.innerText=event.data.msg
+    feedback.appendChild(msgg)
 });
 

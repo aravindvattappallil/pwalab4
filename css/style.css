@@ -82,7 +82,10 @@ Button{
 #musiclistform{
     display: none;
 }
-
+#feedback p {
+    background-color: yellow;
+    padding: 10px;
+}
 
 @media screen and (max-width:768px){
     #main_div{

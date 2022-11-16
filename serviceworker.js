@@ -51,6 +51,7 @@ self.addEventListener('notificationclick', (event) => {
   
     switch (action) {
       case 'confirm':
+        console.log('confirm.');
       self.clients.matchAll().then(clients => {
     clients.forEach(client => client.postMessage({msg: 'So we both agree on that!'}));
 })
@@ -64,7 +65,7 @@ self.addEventListener('notificationclick', (event) => {
         })
         
   
-  feedback.appendChild(msgg)
+  
        
         break;
   
