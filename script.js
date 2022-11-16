@@ -53,6 +53,8 @@ if ('Notification' in window && 'serviceWorker' in navigator) {
         form.style.display="block"
         notificationButton.style.display="none"
 
+
+        
        
         break;
     }
@@ -120,7 +122,11 @@ navigator.serviceWorker.addEventListener('message', (event) => {
   console.log(event.data.msg);
   const feedback= document.getElementById('feedback')
     const msgg = document.createElement('p')
-    msgg.innerText=event.data.msg
+    if(event.data.msg == 'So we both agree on that!'){ 
+    msgg.innerText=event.data.msg}
+    else{
+      msgg.innerText=event.data.msg
+    }
     feedback.appendChild(msgg)
 });
 
