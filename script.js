@@ -6,27 +6,22 @@ const form = document.getElementById('musiclistform');
 const errormsg = document.createElement('div');
 form.insertBefore(errormsg, form.firstChild);
 const notificationButton = document.getElementById('noti');
-
-  console.log("hhhh")
-   switch (Notification.permission) {
-      case 'denied':
-        notificationNotAllowed();
-        break;
-
-      case 'default':
-        requestUserPermission(notificationButton);
-        break;
-
-      case 'granted':
-        form.style.display="block"
-        notificationButton.style.display="none"
+switch (Notification.permission) {
+  case 'denied':
+    notificationNotAllowed();
+    break;
 
 
-       
-        
-       
-        break;
-    }
+  case 'granted':
+    form.style.display="block"
+    notificationButton.style.display="none"
+
+
+   
+    
+   
+    break;
+}
 
 document.getElementById('btn').addEventListener('click', () => {
     var title = document.getElementById("title").value;
@@ -57,6 +52,7 @@ document.getElementById('btn').addEventListener('click', () => {
 
 
 //----------------------Notification
+
 
 if ('Notification' in window && 'serviceWorker' in navigator) {
   notificationButton.addEventListener('click', () => {
@@ -91,7 +87,7 @@ else {
 
 function notificationNotAllowed() {
   console.log('Notifications not allowed!');
-  notificationButton.disabled = true;
+  
 }
 
 function requestUserPermission(notificationButton) {
