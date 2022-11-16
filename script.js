@@ -6,7 +6,27 @@ const form = document.getElementById('musiclistform');
 const errormsg = document.createElement('div');
 form.insertBefore(errormsg, form.firstChild);
 
+function checking(){
+  switch (Notification.permission) {
+    case 'denied':
+      notificationNotAllowed();
+      break;
 
+    case 'default':
+      requestUserPermission(notificationButton);
+      break;
+
+    case 'granted':
+      form.style.display="block"
+      notificationButton.style.display="none"
+
+
+     
+      
+     
+      break;
+  }
+}
 document.getElementById('btn').addEventListener('click', () => {
     var title = document.getElementById("title").value;
     var body = document.getElementById("body").value;
